@@ -3,7 +3,7 @@ import json
 import pandas as pd
 
 SCHEMA_FILE="schema.json"
-current_schema = {}
+current_schema={}
 folder="data/silver"
 
 for file in os.listdir(folder):
@@ -18,16 +18,16 @@ if os.path.exists(SCHEMA_FILE):
     with open(SCHEMA_FILE) as f:
         old_schema = json.load(f)
 
-    print("="*50)
+    print("==========")
     print("Schema Drift Report")
-    print("="*50)
+    print("==========")
 
     for table in current_schema:
         print(f"\n{table}")
         old=old_schema.get(table, {})
         new=current_schema[table]
-        added = set(new.keys()) - set(old.keys())
-        removed = set(old.keys()) - set(new.keys())
+        added=set(new.keys()) - set(old.keys())
+        removed=set(old.keys()) - set(new.keys())
         if added:
             print("Added Columns :", list(added))
         if removed:
