@@ -9,18 +9,16 @@ scripts = [
     "scripts/gold.py"
 ]
 
-print("=" * 60)
+print("==========")
 print("DATAFLOW INC MEDALLION PIPELINE")
-print("=" * 60)
+print("==========")
 
 for script in scripts:
     print(f"\nRunning {script}...\n")
-
     result = subprocess.run(["python", script])
-
+    
     if result.returncode != 0:
         print(f"\nError while running {script}")
         break
-
 else:
     print("\nPipeline Completed Successfully")
