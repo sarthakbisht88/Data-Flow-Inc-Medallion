@@ -1,31 +1,31 @@
-SELECT *
-FROM customer_sales;
+select *
+from customer_sales;
 
-SELECT
-customer_state,
-SUM(payment_value) AS revenue
-FROM customer_sales
-GROUP BY customer_state
-ORDER BY revenue DESC;
+select
+    customer_state,
+    sum(payment_value) as revenue
+from customer_sales
+group by customer_state
+order by revenue desc;
 
-SELECT
-product_category_name,
-SUM(payment_value) AS sales
-FROM customer_sales
-GROUP BY product_category_name
-ORDER BY sales DESC
-LIMIT 10;
+select
+    product_category_name,
+    sum(payment_value) as sales
+from customer_sales
+group by product_category_name
+order by sales desc
+limit 10;
 
-SELECT
-customer_unique_id,
-SUM(payment_value) total_spent
-FROM customer_sales
-GROUP BY customer_unique_id
-ORDER BY total_spent DESC
-LIMIT 20;
+select
+    customer_unique_id,
+    sum(payment_value) as total_spent
+from customer_sales
+group by customer_unique_id
+order by total_spent desc
+limit 20;
 
-SELECT
-payment_type,
-COUNT(*) transactions
-FROM customer_sales
-GROUP BY payment_type;
+select
+    payment_type,
+    count(*) as transactions
+from customer_sales
+group by payment_type;
