@@ -11,8 +11,8 @@ print("Creating Bronze Layer...")
 
 for file in os.listdir(RAW):
     if file.endswith(".csv"):
-        path = os.path.join(RAW, file)
-        df = pd.read_csv(path)
+        path=os.path.join(RAW, file)
+        df=pd.read_csv(path)
         print(f"Loaded {file}")
         print("Rows :", len(df))
 
@@ -20,4 +20,4 @@ for file in os.listdir(RAW):
         df.to_parquet(
             os.path.join(BRONZE, output),index=False
         )
-print("\nBronze Layer Created")
+print("\n Bronze Layer Created")
