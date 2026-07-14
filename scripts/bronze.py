@@ -16,9 +16,8 @@ for file in os.listdir(RAW):
         print(f"Loaded {file}")
         print("Rows :", len(df))
 
-        output = file.replace(".csv", ".parquet")
+        output=file.replace(".csv", ".parquet")
         df.to_parquet(
-            os.path.join(BRONZE, output),
-            index=False
+            os.path.join(BRONZE, output),index=False
         )
 print("\nBronze Layer Created")
